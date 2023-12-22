@@ -1,13 +1,13 @@
 'use client'
 
 import Image from 'next/image'
+import '@styles/nav.css'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { signOut } from "next-auth/react"
 
-const Nav = () => {
-
+const Nav = ({loggedIn}) => {
     const pathname = usePathname();
-    
   return (
     <nav>
         <div className="nav_logo">
@@ -38,6 +38,27 @@ const Nav = () => {
             <li>
                 <Link className={`${pathname === '/rankings' ? 'active' : ''}`} href={'/rankings'}>Rankings</Link>
             </li>
+            {loggedIn ? (
+                <div>
+                    <span className="nav_seperator"></span>
+                    <li>
+                        <Link onClick={() => {signOut({callbackUrl: '/'})}} href={'/'}>Log Out</Link>
+                    </li>
+                </div>
+                
+            ):
+            (
+                <div>
+                    <span className="nav_seperator"></span>
+                    <li>
+                        <Link className={`${pathname === '/login' ? 'active' : ''}`} href={'/login'}>Log In</Link>
+                    </li>
+                    <li>
+                        <Link className={`${pathname === '/register' ? 'active' : ''}`} href={'/register'}>Register</Link>
+                    </li>
+                </div>
+            )
+            }
         </ul>
     </nav>
   )
