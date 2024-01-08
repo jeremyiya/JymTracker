@@ -5,9 +5,13 @@ import '@styles/nav.css'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { signOut } from "next-auth/react"
+import { useSession } from "next-auth/react"
 
 const Nav = ({loggedIn}) => {
     const pathname = usePathname();
+    const { data: session, status } = useSession()
+
+    console.log(session)
   return (
     <nav>
         <div className="nav_logo">

@@ -9,6 +9,7 @@ const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
+let test = 1
 const handler = NextAuth({
   session: {
     strategy: 'jwt'
@@ -65,6 +66,7 @@ const handler = NextAuth({
             first_name: response.rows[0].first_name,
             last_name: response.rows[0].last_name
           }
+          test = 99;
           return user;
         }
         catch(e) {
@@ -139,6 +141,23 @@ const handler = NextAuth({
         }
       }
       return false;
+    },
+    async jwt({ token, user}) {
+      if(user){
+         token.user = user;
+      }
+      return token;
+    },
+    async session({ session, token, user }) {
+      console.log(test)
+      if(token.user){
+        
+        session.user = token.user;
+      }
+      else {
+        session.user = token;
+      }
+      return session
     }
   }
 });
