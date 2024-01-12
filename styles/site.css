@@ -21,6 +21,10 @@ body {
 h1, h2, h3, h4, h5, h6, p {
     padding: 0;
     margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+a {
+    text-decoration: none;
 }
 main {
     margin-left: var(--nav-w);
@@ -29,4 +33,77 @@ button {
     background-color: var(--white);
     border: 2px solid var(--dark);
     outline: none;
+}
+
+
+.landing_page .green_deco_1 {
+    background-color: var(--green);
+    position: absolute;
+    top: 0;
+    right: 100px;
+    height: 500px;
+    width: 350px;
+}
+.landing_page .green_deco_2 {
+    background-color: var(--green);
+    position: absolute;
+    top: 650px;
+    left: calc(var(--nav-w));
+    height: 150px;
+    width: 815px;
+}
+.landing_container {
+    background-color: var(--white);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 400px;
+    margin-left: 350px;
+    padding: 10px 30px 30px 30px;
+    border-radius: 3px;
+    box-shadow: 1px 7px 12px 1px rgba(17, 17, 17, 0.1);
+}
+.landing_container h1 {
+    font-weight: 900;
+    font-size: 4em;
+    background: linear-gradient(176deg, rgba(45,41,39,1) 25%, rgba(0,69,15,1) 61%, rgba(7,131,36,1) 89%, rgba(22,185,61,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.landing_container p {
+    font-size: 1.8em;
+    margin-top: 20px;
+}
+.landing_container a {
+    background-color: var(--green);
+    padding: 10px;
+    font-size: 1.7em;
+    margin-top: 20px;
+    color: var(--white);
+    width: 350px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 16px 2px rgba(22,185,61,0.5);
+    transition: all 200ms ease-in-out;
+}
+.landing_container a:hover {
+    box-shadow: 0px 4px 16px 2px rgba(22,185,61,0.9);
+}
+.landing_page img {
+    position: absolute;
+    border-radius: 4px;
+    box-shadow: 1px 4px 12px 1px rgba(35, 35, 35, 0.15);
+}
+.landing_img_1 {
+    top: 500px;
+    right: 40px;
+    z-index: 0;
+}
+.landing_img_2{
+    top: 30px;
+    left: calc(var(--nav-w) + 40px);
+    width: 350px;
+    height: auto;
 }

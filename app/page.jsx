@@ -1,10 +1,19 @@
+import LandingPage from '@components/LandingPage';
 import { getServerSession } from 'next-auth';
 
 const Home = async () => {
   const session = await getServerSession();
+  console.log(session)
   return (
-    <div>Home
-      <h1>Hello, </h1>
+    <div>
+      {
+        session ?
+        <div>
+          Hello
+        </div>
+        :
+        <LandingPage />
+      }
     </div>
   )
 }
